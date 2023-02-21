@@ -101,3 +101,7 @@ function get_book_list_by_id($offset = 0, $limit = PAGE_LIMIT) {
 function log_in_user($id) {
     $_SESSION['user_id'] = $id;
 }
+
+function user_logged_in() {
+    return isset($_SESSION['user_id']) && $_SESSION['user_id'] !== null;
+}
