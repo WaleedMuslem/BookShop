@@ -125,3 +125,8 @@ function current_user() {
 
     return $stmt->fetch(PDO::FETCH_OBJ);
 }
+
+function log_out_user() {
+    $_SESSION = [];
+    session_destroy();
+}
