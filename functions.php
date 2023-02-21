@@ -53,3 +53,11 @@ function db_connect() {
 
     return $dbh;
 }
+
+function get_book_count() {
+    global $db;
+
+    $sql = "SELECT COUNT('id') as count FROM books;";
+
+    return $db->query($sql)->fetch(PDO::FETCH_OBJ)->count;
+}
