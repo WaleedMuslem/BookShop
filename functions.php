@@ -61,3 +61,12 @@ function get_book_count() {
 
     return $db->query($sql)->fetch(PDO::FETCH_OBJ)->count;
 }
+
+function get_book_by_id($id) {
+    global $db;
+
+    $stmt = $db->prepare("SELECT * from books WHERE id = ?");
+    $stmt->execute([$id]);
+
+    return $stmt->fetch(PDO::FETCH_OBJ);
+}
