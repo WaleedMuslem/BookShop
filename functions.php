@@ -105,3 +105,10 @@ function log_in_user($id) {
 function user_logged_in() {
     return isset($_SESSION['user_id']) && $_SESSION['user_id'] !== null;
 }
+
+function current_user_id(){
+    if(!user_logged_in()){
+        return null;
+    }
+    return $_SESSION['user_id'];
+}
