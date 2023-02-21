@@ -97,3 +97,7 @@ function get_book_list_by_id($offset = 0, $limit = PAGE_LIMIT) {
 
     return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
+
+function log_in_user($id) {
+    $_SESSION['user_id'] = $id;
+}
