@@ -137,3 +137,9 @@ function gate() {
         redirect('login');
     }
 }
+
+function guest_only() {
+    if (user_logged_in()) {
+        redirect('home');
+    }
+}
