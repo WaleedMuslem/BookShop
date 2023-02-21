@@ -112,3 +112,16 @@ function current_user_id(){
     }
     return $_SESSION['user_id'];
 }
+
+function current_user() {
+    global $db;
+
+    if (!user_logged_in()) {
+        return null;
+    }
+
+    $stmt = $db->prepare("SELECT * from users WHERE id = ?");
+    $stmt->execute([$_SESSION['user_id']]);
+
+    return $stmt->fetch(PDO::FETCH_OBJ);
+}
