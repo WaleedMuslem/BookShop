@@ -70,3 +70,14 @@ function get_book_by_id($id) {
 
     return $stmt->fetch(PDO::FETCH_OBJ);
 }
+
+function get_book_list($offset = 0, $limit = PAGE_LIMIT) {
+    global $db;
+
+    $stmt = $db->prepare("SELECT * FROM books LIMIT :offset, :limit");
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+}
