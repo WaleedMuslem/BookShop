@@ -157,3 +157,18 @@ function current_url() {
 
     return $url;
 }
+
+// Register validation 
+function isUnique($email){
+    global $db;
+
+    $query = "select * from users where email='$email'";
+
+    $result = $db->query($query);
+    
+    if($result){
+        return false;
+    }
+    else return true;
+    
+}
