@@ -130,3 +130,10 @@ function log_out_user() {
     $_SESSION = [];
     session_destroy();
 }
+
+function gate() {
+    if (!user_logged_in()) {
+        $_SESSION['intented_url'] = current_url();
+        redirect('login');
+    }
+}
