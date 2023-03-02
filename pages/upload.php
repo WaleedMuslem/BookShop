@@ -1,3 +1,7 @@
+<?php if(!defined("APP_VERSION")){
+    exit;
+} ?>
+<?php gate(); ?>
 <?php
     $errors = [];
 
