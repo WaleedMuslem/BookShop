@@ -1,3 +1,16 @@
+<?php if (!defined("APP_VERSION")) exit; ?>
+<?php
+
+$current_page = isset($_GET['page_num']) ? intval($_GET['page_num']) : 1;
+
+$offest = ($current_page - 1) * PAGE_LIMIT;
+
+$book_count = get_book_count();
+
+$books = get_book_list($offest);
+
+$total_page = intval(ceil($book_count / PAGE_LIMIT));
+?>
 <?php require_once  BASE_PATH."/views/_header.php"; ?>
 <div>
 <form class="search-form">
