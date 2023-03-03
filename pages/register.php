@@ -1,3 +1,76 @@
+<?php guest_only(); ?>
+
+<?php
+    $errors = [];
+    $name = "";
+    $email = "";
+
+    if (is_post()) {
+        
+        $name = $_POST['name'];
+        $email = trim($_POST['email']);
+        $password = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'];
+
+        if ($name == null) {
+            $errors['name'][] = 'Name is required';
+        } else {
+            if(!is_string($name)){
+                $errors['name'][] = 'Name must be a string';
+            }
+            if (strlen($name) < 2) {
+                $errors['name'][] = 'Name must be at least 2 characters long';
+            }
+            if (strlen($name) > 255) {
+                $errors['name'][] = "The Name must be less then 255 characters long";
+            }
+        }
+
+        if ($email == null) {
+            $errors['email'][] = "Email is required";
+        }else{
+            if(isUnique($email)){
+                $errors['email'][] = "Email already exists";
+            }
+        }
+        
+
+        if ($password == null) {
+            $errors['password'][] = "password is required";
+        } else {
+            if (strlen($password) < 5) {
+                $errors['password'][] = "The Password must be at least 5 long";
+            }
+            if ($password != $confirm_password) {
+                $errors['password'][] = "The Password do not match with the confirm password";
+            }
+        }
+
+        
+        if (!count($errors)) {
+            $passwordi = password_hash($password, PASSWORD_DEFAULT);
+
+            $stmt = $db->prepare("INSERT INTO users (email, password, name) VALUES (:email, :password, :name)");
+
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':password', $passwordi);
+            $stmt->bindParam(':name', $name);
+
+            try {
+                $stmt->execute();
+
+                redirect('login');
+            } catch (PDOException $e) {
+                print "Error!: " . $e->getMessage() . "<br/>";
+                die();
+            }
+        }
+
+        
+    }
+
+
+?>
 <?php include_once './views/_header.php'; ?>
 
 <div class="page page-login">
