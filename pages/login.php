@@ -1,3 +1,33 @@
+
+<?php
+    if (is_post()) {
+        $email = trim($_POST['email']);
+        $password = $_POST['password'];
+
+        $stmt = $db->prepare("SELECT * from users WHERE email = ?");
+        $stmt->execute([$email]);
+
+        if ($user = $stmt->fetch(PDO::FETCH_OBJ))
+        {
+            if (!password_verify($password, $user->password)) {
+                $errors[] = 'The given credentials don\'t match';
+            }
+        } else {
+            $errors[] = 'The given credentials don\'t match';
+        }
+
+        if (count($errors) === 0) {
+            log_in_user($user->id);
+
+            if (isset($_SESSION['intented_url'])) {
+                $url = $_SESSION['intented_url'];
+                header("Location: $url");
+                die();
+            }
+            redirect('home');
+        }
+    }
+?>
 <?php include_once './views/_header.php'; ?>
 <div class="page-page-login">
     <h1 class="singin-h1">Sign in</h1>
