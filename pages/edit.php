@@ -1,3 +1,24 @@
+<?php 
+if(!defined("APP_VERSION")){
+    exit;
+}
+gate();
+?>
+<?php 
+
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+
+
+if($id ===null){
+    
+    redirect('home');
+}
+$book = get_book_by_id($id);
+
+if($book === null){
+    redirect('404');
+}
+
 $errors = [];
 
 $title = $book->title;
