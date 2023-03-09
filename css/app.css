@@ -53,3 +53,54 @@ header a {
 header a:hover{
     color: rgb(0, 0, 0);  
 }
+.user-welcome{
+    transform: translate(560px, -20px);
+    font-size: 24px;
+    pointer-events: none;
+}
+.profile-logo{
+    width: 45px;
+    transform: translate(380px, -5px);
+    pointer-events: none;
+    
+}
+main {
+    padding: 60px 0;
+}
+
+footer {
+background-color: rgb(192, 156, 119);
+color: #fff;
+padding: 20px;
+
+}
+.container-footer{
+    margin-top: auto;
+}
+footer h1{
+    text-align: center;
+    font-weight: bolder;
+}
+
+footer h5 {
+    text-align: right;
+    margin-bottom: 11px;
+    margin-right: 50px;
+    
+}
+
+
+.social-icons {
+display: flex;
+justify-content:end;
+flex-direction: row;
+}
+
+.social-icons a {
+color: #fff;
+margin: 10px 10px;
+}
+.social-icons img{
+width: 40px;
+
+}
