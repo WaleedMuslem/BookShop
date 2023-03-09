@@ -21,3 +21,35 @@ section,
 main {
     display: block;
 }
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    background: rgb(192, 156, 119);
+    z-index: 1000;
+}
+
+header nav {
+    text-align: left;
+}
+
+header a {
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: bold;
+    
+}
+.header-links{
+    transform: translate(0px, -20px);
+}
+.favicon{
+    width: 60px;
+}
+header a:hover{
+    color: rgb(0, 0, 0);  
+}
