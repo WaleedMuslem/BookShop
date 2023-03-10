@@ -133,3 +133,29 @@ width: 40px;
     width: 180px;
     margin: 15px auto;
 }
+.card {
+    display: block;
+    padding: 1rem;
+    margin-top: 5rem;
+    background: rgb(255, 255, 255);
+    border-radius: 1rem;
+    box-shadow: 3px 3px 3px rgb(49, 49, 49);
+    width: 500px;
+    margin-left: 350px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group.has-error label {
+    color: tomato;
+}
+.form-group.has-error .form-control {
+    border-color: tomato;
+}
