@@ -159,3 +159,15 @@ width: 40px;
 .form-group.has-error .form-control {
     border-color: tomato;
 }
+.validation-error {
+    font-size: 0.85rem;
+    color: tomato;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #999999;
+}
