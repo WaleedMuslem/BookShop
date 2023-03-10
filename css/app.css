@@ -104,3 +104,32 @@ margin: 10px 10px;
 width: 40px;
 
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0 auto;
+    width: 1200px;
+}
+.container-nav{
+    margin: 0 auto;
+    width: 1000px;
+}
+.singin-h1{
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-weight: bolder;
+    font-size: 45px;
+    margin-top: 50px;
+}
+.line-style {
+    border-top: 5px solid rgb(149, 102, 55);
+    width: 300px;
+    margin: 15px auto;
+}
+.line-style2{
+    border-top: 5px solid rgb(149, 102, 55);
+    width: 180px;
+    margin: 15px auto;
+}
