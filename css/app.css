@@ -195,3 +195,27 @@ width: 40px;
 .btn:hover {
     opacity: 0.8;
 }
+
+.alert {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alert.alert-success {
+    background: #90d0a0;
+    color: #134c13;
+    border: 1px solid #134c13;
+}
+
+.alert.alert-warning {
+    background: #ffebac;
+    color: #82602b;
+    border: 1px solid #82602b;
+}
+
+.alert.alert-error {
+    background: #ffb6ac;
+    color: #82312b;
+    border: 1px solid #822b2b;
+}
