@@ -171,3 +171,27 @@ width: 40px;
     border-radius: 0.25rem;
     border: 1px solid #999999;
 }
+
+.btn {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(61, 224, 69);
+}
+.btn-link a{
+    text-decoration: none;
+    color: #000000;
+    margin-left: 100px;
+}
+.btn-link a:hover{
+    color: rgb(61, 224, 69);
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
